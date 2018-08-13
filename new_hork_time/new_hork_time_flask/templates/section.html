@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title  %}{{ new_data['kind'] }}{% endblock %}
+{% block main %}
+    <h1 class="page_title" >{{ new_data['kind'] }}</h1>
+    <hr />
+    {% for data in new_data['dat']%}
+        <p><a href="{{ url_for("detail",article_id=data.id) }}">{{ data.headline }}</a></p>
+        {{ data.summary }}
+        <p>{{ data.datetime }}</p>
+    <hr/>
+    {% endfor %}
+{% endblock %}

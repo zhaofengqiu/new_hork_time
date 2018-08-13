@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News-{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="icon" href="{{ url_for('static',filename='images/google.ico')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base.css') }}">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/core.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static',filename='js/base.js') }}"></script>
+    {% block head %}{% endblock   %}
+</head>
+{% block body %}
+<body >
+
+    <ul class="nav nav-tabs navbar-default navbar-fixed-top">
+        {% block ul %}
+        <li role="presentation"><a href="{{ url_for('index')}}">Home</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='World') }}">World</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='U.S.') }}">U.S.</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='Politics') }}">Politics</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='N.Y.') }}">N.Y.</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='Business') }}">Business</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='Opinion') }}">Opinion</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='Tech') }}">Tech</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='Science') }}">Science</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='Health') }}">Health</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='Sports') }}">Sports</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='Arts') }}">Arts</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='Books') }}">Books</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='Style') }}">Style</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='Food') }}">Food</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='Travel') }}">Travel</a></li>
+        <li role="presentation"><a href="{{ url_for('section',sort='Magazine') }}">Magazine</a></li>
+        {% if user %}
+            <li class="dropdown-menu-right" role="presentation"><h4>{{ user }}</h4> </li>
+            <li class="dropdown-menu-right" role="presentation"><a href="{{ url_for('logout') }}">Logout</a></li>
+            <li class="dropdown-menu-right" role="presentation"><a href="{{ url_for('user') }}">User Center</a></li>
+        {% else %}
+            <li class="dropdown-menu-right" role="presentation"><a href="{{ url_for('register') }}">Register</a></li>
+            <li class="dropdown-menu-right" role="presentation"><a href="{{ url_for('login') }}">Login</a></li>
+        {% endif %}
+        {% endblock %}
+    </ul>
+    <br></br>
+
+    <div class="main">
+        {% block  main %}
+        {% endblock    %}
+    </div>
+
+</body>
+{% endblock %}
+</html>

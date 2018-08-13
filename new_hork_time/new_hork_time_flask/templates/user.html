@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{{ supper() }}
+{% block title  %}User Center{% endblock %}
+{% block body %}
+    <div class= "conL" >
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/login_register.css')}}"/>
+
+         {{ super() }}
+        <h1>{{ data['username'] }},hello</h1>
+        <p>Here you can configure what type of messages you are going to send and subscribe to.</p>
+        <p>The columns you have subscribed to :</p>
+        <h4>{% for key,value in data.items() %}
+                {% if value=='on' %}
+                    {{ key }},
+                {% endif %}
+            {% endfor %}
+        </h4>
+        <p>You will receive above emails in your mail  on six o`click every day</p>
+        <p>if you have some suggestions police send them to 15558781880@163.com</p>
+        <p>thanks very mach</p>
+        <p>If you want to close your account ,please button the under buttom .</p>
+        <form  action="{{ url_for('user') }}" onsubmit="return sumbit_sure()" method="post">
+            <input type="hidden"  name="upgrade" value="cancle"/>
+            <button type="submit" float=left width=400px >Cancle Account</button>
+        </form>
+    </div>
+    <br></br>
+    <br></br>
+<form class='form-container' action="{{ url_for('user') }}" method="post">
+<input type="hidden"  name="upgrade" value="up"/>
+<div>
+<p class="page_title">What content would you like to subscribe to?</p>
+    <table class="table table-hover">
+
+    {% for key in sort %}
+        <tr>
+            {% if key not in data %}
+                <td><input type="checkbox"  name="{{ key }}">{{ key }}</td>
+            {% endif %}
+        </tr>
+
+    {% endfor %}
+
+    </table>
+
+</div>
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+</form>
+<form class='form-container' action="{{ url_for('user') }}" method="post">
+<input type="hidden"  name="upgrade" value="down"/>
+<div>
+    <p class="page_title">What content would you like to quit ?</p>
+    <table class="table table-hover">
+    {% for key,value in data.items() %}
+        <tr>
+            {% if value=='on' %}
+
+                <td><input type="checkbox"  name="{{ key }}">{{ key }}</td>
+
+            {% endif %}
+        {% endfor %}
+         </tr>
+    {% for key in data.keys() %}
+
+    {% endfor %}
+
+    </table>
+
+</div>
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+</form>
+
+{% endblock %}
+{% block main %}
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title  %}{{ articledata.section }}{% endblock %}
+{% block ul %}{% endblock %}
+{% block main %}
+    <h1 align="center">{{ articledata.new.headline }}</h1>
+    <h4>{{ articledata.new.datetime }}</h4>
+    <h3>{{ articledata.datetime }}</h3>
+    {{ articledata.text |safe }}
+{% endblock %}

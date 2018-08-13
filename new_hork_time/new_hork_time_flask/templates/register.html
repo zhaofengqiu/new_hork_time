@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/login_register.css')}}"/>
+
+<form action="{{ url_for('register') }}" method="post">
+    <div class="form-container">
+        <h3 class="page_title">Register</h3>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="text" class="form-control" name="email_adress" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">username</label>
+            <input type="text" class="form-control" name="username" placeholder="username">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" name="password1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Verify your password</label>
+            <input type="password" class="form-control" name="password2" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+    </div>
+{% endblock %}

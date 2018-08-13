@@ -1,0 +1,12 @@
+
+
+HOSTNAME='xxx'
+PORT    ='xxx'
+DATABASE='xxxx'
+USERNAME='xxx'
+PASSWORD='xxxx'
+SQLALCHEMY_TRACK_MODIFICATIONS=False
+DB_URI  ='mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8'.format(USERNAME,PASSWORD,
+        HOSTNAME,PORT,DATABASE)
+SQLALCHEMY_DATABASE_URI=DB_URI
+

@@ -1,0 +1,75 @@
+body{
+    background: #ffffff;
+    overflow:scroll;
+}
+
+
+.main{
+    background: #fff;
+    width: 730px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 10px;
+
+}
+hr {
+    margin-top:7px;
+    *margin: 0;
+    border: 0;
+    color: #FFF;
+    background-color: black;
+    height: 3px
+}
+img{
+     border:20px solid #FFF
+}
+.css-1i0edl6{
+
+    font-weight:600;
+
+    font-size:18px;
+
+    font-family:SimSun
+}
+
+
+
+div#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -10;
+  background-position: center 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  zoom: 1;
+
+  opacity:1;
+  transition: opacity 1s linear;
+  -moz-transition: opacity 1s linear;
+  -webkit-transition: opacity 1s linear;
+  -o-transition: opacity 1s linear;
+}
+
+figcaption{
+
+    color:rgba(0,0,0,0.35);
+
+}
+.conL{
+    float:left;
+    width:400px;
+}
+.search_buttom
+{
+    float:left;
+    width:400px;
+    position:absolute;
+
+    top:150px;
+}

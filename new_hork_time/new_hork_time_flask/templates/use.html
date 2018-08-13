@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title  %}用户中心{% endblock %}
+{% block body %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login_register.css')}}"/>
+
+     {{ super() }}
+    <h1>{{ data['username'] }},你好</h1>
+    <p>您可以在这里配置你准备发送订阅什么类型的信息</p>
+    <p>您已订阅的栏目</p>
+    <p>{% for key,value in data.items() %}
+            {% if value=='on' %}
+                {{ key }}
+            {% endif %}
+        {% endfor %}
+    </p>
+<form class='form-container' action="{{ url_for('user') }}" method="post">
+<input type="hidden"  name="upgrade" value="up"/>
+<div>
+<p class="page_title">请问你要订阅哪些内容</p>
+    <table class="table table-hover">
+
+    {% for key in sort %}
+        <tr>
+            {% if key not in data %}
+                <td><input type="checkbox"  name="{{ key }}">{{ key }}</td>
+            {% endif %}
+        </tr>
+
+    {% endfor %}
+
+    </table>
+
+</div>
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+</form>
+<form class='form-container' action="{{ url_for('user') }}" method="post">
+<input type="hidden"  name="upgrade" value="down"/>
+<div>
+    <p class="page_title">请问你要退选哪些内容</p>
+    <table class="table table-hover">
+    {% for key,value in data.items() %}
+        <tr>
+            {% if value=='on' %}
+
+                <td><input type="checkbox"  name="{{ key }}">{{ key }}</td>
+
+            {% endif %}
+        {% endfor %}
+         </tr>
+    </table>
+
+</div>
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+</form>
+
+{% endblock %}
+{% block main %}
+
+{% endblock %}
