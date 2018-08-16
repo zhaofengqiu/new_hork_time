@@ -13,7 +13,7 @@ db.init_app(app)
 sorts=['Top_new','World','U.S.','Politics','N.Y.','Business','Opinion',
       'Tech','Science','Health','Sports','Arts','Books',
       'Style','Food','Travel','Magazine']
-mail_names = open(r'C:\Users\asus\Desktop\myproject_old\new_hork_timetemp\mail_names.txt').readlines()
+mail_names = open(config.MAIL_PATH).readlines()
 @app.route('/')
 def hello_world():
     return redirect('/index/')
