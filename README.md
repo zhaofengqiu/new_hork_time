@@ -13,8 +13,13 @@
 部署分为两部分部署，第一部分是爬虫的部署，第二部分是网站的部署。  其中你需要两台服务器，一台海外服务器放置爬虫，一台国内服务器部署网站
 1. 网站的部署  
  1. 数据库ORM映射
- '''
+ ```
  python manage.py db init
  python manage.py db migrate
  python manage.py db upgrade
- '''
+ ```
+ 2. 配置uwsgi.ini
+ 3. 使用uwsgi 运部署 uwsgi ini uwsgi.ini
+ 
+2. 爬虫的部署
+配置 uwsgi.ini，运行uwsgi
